@@ -6,6 +6,9 @@
 body {
   background: #f1f1f1!important;
 }
+body.hide-scrollbar {
+  overflow: hidden;
+}
 body .container {
   max-width: 1100px;
 }
@@ -43,12 +46,11 @@ body .container {
 .draggable-area .draggable-img {
   position: absolute;
   z-index: 2;
-  cursor: move;
   left: 35%;
   top: 30%;
+  cursor: move;
   width: 200px;
   height: 200px;
-  background-color: red;
 }
 .draggable-img:hover::before {
   content: "↘";
@@ -71,13 +73,7 @@ body .container {
   max-width: 100%;
 }
 
-@media (hover: none) {
-}
-
 @media (max-width: 600px) {
-  .draggable-img {
-    pointer-events: none;
-  }
   #filterable-cards {
     justify-content: center;
   }

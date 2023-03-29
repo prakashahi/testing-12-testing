@@ -62,7 +62,9 @@ function initDragAndResize(e) {
     const y = (e.clientY || e.touches[0].clientY) - rect.top;
 
     // Prevent scrolling on touch devices
-    document.body.style.overflow = "hidden";
+    if(e.touches?.length && e.cancelable) {
+        document.body.classList.add("hide-scrollbar");
+    };
     
     const move = (e) => {
         // Get the draggable area for limiting movement
@@ -101,7 +103,7 @@ function initDragAndResize(e) {
 
     // Remove event listeners when dragging/resizing is finished
     const removeListeners = () => {
-        document.body.style.overflow = "auto";
+        document.body.classList.remove("hide-scrollbar");
         document.removeEventListener("mousemove", isBottomRight ? resize : move);
         document.removeEventListener("touchmove", isBottomRight ? resize : move);
     }
