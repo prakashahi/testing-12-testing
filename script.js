@@ -63,7 +63,7 @@ function initDragAndResize(e) {
 
     // Prevent scrolling on touch devices
     if(e.touches?.length && e.cancelable) {
-        document.body.classList.add("hide-scrollbar");
+        e.preventDefault();
     };
     
     const move = (e) => {
